@@ -5,7 +5,7 @@
 //  Created by 변지혜 on 8/26/25.
 //
 
-import Foundation
+// let input = readLine()
 
-print("Hello, World!")
-
+let game = BaseballGame()
+game.start()
