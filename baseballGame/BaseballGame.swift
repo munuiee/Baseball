@@ -42,7 +42,7 @@ class BaseballGame {
                 print("Nothing")
             } else if strike > 0 && ball == 0 {
                 print("\(strike)스트라이크")
-            } else if strike == 0 && ball < 3 {
+            } else if strike == 0 && ball > 0 {
                 print("\(ball)볼")
             } else {
                 print("\(strike)스트라이크 \(ball)볼")
