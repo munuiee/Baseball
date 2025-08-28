@@ -11,11 +11,13 @@ class BaseballGame {
     
     
     func start() {
+        
         let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
         print(intro)
         
         
         let randomAnswer = makeAnswer()
+       // print(randomAnswer)
         
         while true {
             let userAnswer = inputAnswer()
@@ -54,32 +56,49 @@ class BaseballGame {
         }
     }
     
+    
     // 입력값 받기
     func inputAnswer() -> [Int] {
         if let input = readLine() {
+            
             let nums = input.compactMap { Int(String($0)) }
+            
+            if nums[0] == 0 {
+                print("맨 앞자리는 0이될 수 없습니다.")
+                return inputAnswer()
+            }
             
             if nums.count == 3 {
                 print("입력한 숫자 👉 \(nums)")
-               // _ = makeAnswer()
                 return nums
             } else {
                 print("숫자를 다시 입력해주세요. 세 개의 숫자만 가능합니다. 🥲")
                 return inputAnswer()
             }
+                
         }
         return []
     }
+    
     
     // 랜덤 숫자 출력
     func makeAnswer() -> [Int] {
         var pickNumbers: Set<Int> = []
         
-        while pickNumbers.count < 3 {
+        // 인덱스 0번째 자리 0 금지
+        while pickNumbers.count == 0 {
             let randomNum = Int.random(in: 1...9)
             pickNumbers.insert(randomNum)
         }
+        
+        // 나머지 인덱스 숫자 채우기
+        while pickNumbers.count < 3 {
+            let randomNum = Int.random(in: 0...9)
+            pickNumbers.insert(randomNum)
+        }
         return Array(pickNumbers)
+        
+        
     }
     
 }
