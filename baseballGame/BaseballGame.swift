@@ -11,13 +11,12 @@ class BaseballGame {
     
     
     func start() {
-        let intro: String = "숫자를 입력하세요"
+        let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
         print(intro)
         //let userAnswer = inputAnswer() // 리턴값 없는 경우엔 상수 선언 안 해줘도 됨!
         
         
         let randomAnswer = makeAnswer()
-        
         
         while true {
             let userAnswer = inputAnswer()
@@ -39,13 +38,13 @@ class BaseballGame {
             // 결과 출력 조건문. 개수로 계산하여 0일 경우 Nothig, 0보다 클 경우 나머지
             
             if strike == 0 && ball == 0 {
-                print("Nothing")
+                print("실패! Nothing 🥲")
             } else if strike > 0 && ball == 0 {
-                print("\(strike)스트라이크")
+                print("\(strike) 스트라이크!")
             } else if strike == 0 && ball > 0 {
-                print("\(ball)볼")
+                print("\(ball)볼!")
             } else {
-                print("\(strike)스트라이크 \(ball)볼")
+                print("\(strike)스트라이크 \(ball)볼 🔥")
             }
         }
     }
@@ -56,11 +55,11 @@ class BaseballGame {
             let nums = input.compactMap { Int(String($0)) }
             
             if nums.count == 3 {
-                print("입력한 숫자: \(nums)")
+                print("입력한 숫자 👉 \(nums)")
                 _ = makeAnswer()
                 return nums
             } else {
-                print("숫자를 다시 입력해주세요. 세 개의 숫자만 가능합니다.")
+                print("숫자를 다시 입력해주세요. 세 개의 숫자만 가능합니다. 🥲")
                 return inputAnswer()
             }
         }
