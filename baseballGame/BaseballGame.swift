@@ -13,7 +13,6 @@ class BaseballGame {
     func start() {
         let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
         print(intro)
-        //let userAnswer = inputAnswer() // 리턴값 없는 경우엔 상수 선언 안 해줘도 됨!
         
         
         let randomAnswer = makeAnswer()
@@ -46,6 +45,12 @@ class BaseballGame {
             } else {
                 print("\(strike)스트라이크 \(ball)볼 🔥")
             }
+            
+            // 3 스트라이크 시 조건문 탈출
+            if strike == 3 {
+                print("정답! 🎉 3 스트라이크!")
+                break
+            }
         }
     }
     
@@ -56,7 +61,7 @@ class BaseballGame {
             
             if nums.count == 3 {
                 print("입력한 숫자 👉 \(nums)")
-                _ = makeAnswer()
+               // _ = makeAnswer()
                 return nums
             } else {
                 print("숫자를 다시 입력해주세요. 세 개의 숫자만 가능합니다. 🥲")
@@ -74,7 +79,6 @@ class BaseballGame {
             let randomNum = Int.random(in: 1...9)
             pickNumbers.insert(randomNum)
         }
-        // print(Array(pickNumbers))
         return Array(pickNumbers)
     }
     
