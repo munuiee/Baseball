@@ -9,15 +9,16 @@ import Foundation
 
 class BaseballGame {
     
+    var recordManager = RecordManager()
     
     func start() {
         
-        //        let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
-        //        print(intro)
+        // let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
+        // print(intro)
         
         
         let randomAnswer = makeAnswer()
-        // print(randomAnswer)
+        print(randomAnswer)
         
         while true {
             
@@ -31,8 +32,10 @@ class BaseballGame {
             switch userSelect {
             case "1":
                 print("야구게임 시작! ⚾️ 숫자를 3개 입력해주세요.")
+ //              _ = recordManager.gameAdd()
             case "2":
-                print("2번 실행") // 아직 작동 안 함 (Lv5 추가예정)
+                print("내 기록 🕹️") 
+                recordManager.showRecords()
             case "3":
                 print("3번 실행") // 아직 작동 안 함
             default:
@@ -72,8 +75,13 @@ class BaseballGame {
                 
                 // 3 스트라이크 시 조건문 탈출
                 if strike == 3 {
-                    print("정답! 🎉 3 스트라이크!")
+                    print("""
+                    정답! 🎉 3 스트라이크!
+                    게임이 종료되었어요.
+                    """)
+                    recordManager.endGame()
                     break
+                    
                 }
             }
         }
@@ -86,14 +94,15 @@ class BaseballGame {
             
             let nums = input.compactMap { Int(String($0)) }
             
-//            if nums.contains(0) {
-//                print("0은 입력될 수 없습니다.")
-//                return inputAnswer()
-//            }
+            if nums.first == 0 {
+                print("앞자리에 0은 입력될 수 없습니다.")
+                return inputAnswer()
+            }
             
             // 중복 제거 및 숫자 3개인 경우만 출력
             if nums.count == 3 && Set(nums).count == 3{
                 print("입력한 숫자 👉 \(nums)")
+                _ = recordManager.add()
                 return nums
             } else {
                 print("숫자를 다시 입력해주세요. 중복 제외, 세 개의 숫자만 가능합니다. 🥲")
@@ -109,20 +118,25 @@ class BaseballGame {
     func makeAnswer() -> [Int] {
         var pickNumbers: Set<Int> = []
         
-        // 인덱스 0번째 자리 0 금지
-        while pickNumbers.count == 0 {
-            let randomNum = Int.random(in: 1...9)
-            pickNumbers.insert(randomNum)
-        }
+//        // 인덱스 0번째 자리 0 금지
+//        while pickNumbers.first == 0 {
+//            let randomNum = Int.random(in: 1...9)
+//            pickNumbers.insert(randomNum)
+//        }
         
         // 나머지 인덱스 숫자 채우기
         while pickNumbers.count < 3 {
             let randomNum = Int.random(in: 0...9)
             pickNumbers.insert(randomNum)
         }
-        return Array(pickNumbers)
+        var mainNumbers = Array(pickNumbers)
+        while mainNumbers.first == 0 {
+            pickNumbers.remove(0)
+            pickNumbers.insert(Int.random(in: 0...9))
+            mainNumbers = Array(pickNumbers)
+        }
         
-        
+        return mainNumbers
     }
     
 }
