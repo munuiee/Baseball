@@ -12,12 +12,12 @@ class BaseballGame {
     
     func start() {
         
-//        let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
-//        print(intro)
+        //        let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
+        //        print(intro)
         
-
+        
         let randomAnswer = makeAnswer()
-       // print(randomAnswer)
+        // print(randomAnswer)
         
         while true {
             
@@ -86,19 +86,20 @@ class BaseballGame {
             
             let nums = input.compactMap { Int(String($0)) }
             
-            if nums[0] == 0 {
-                print("맨 앞자리는 0이될 수 없습니다.")
-                return inputAnswer()
-            }
+//            if nums.contains(0) {
+//                print("0은 입력될 수 없습니다.")
+//                return inputAnswer()
+//            }
             
-            if nums.count == 3 {
+            // 중복 제거 및 숫자 3개인 경우만 출력
+            if nums.count == 3 && Set(nums).count == 3{
                 print("입력한 숫자 👉 \(nums)")
                 return nums
             } else {
-                print("숫자를 다시 입력해주세요. 세 개의 숫자만 가능합니다. 🥲")
+                print("숫자를 다시 입력해주세요. 중복 제외, 세 개의 숫자만 가능합니다. 🥲")
                 return inputAnswer()
             }
-                
+            
         }
         return []
     }
