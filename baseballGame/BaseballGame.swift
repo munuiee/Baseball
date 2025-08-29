@@ -15,8 +15,6 @@ class BaseballGame {
 //        let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
 //        print(intro)
         
-        
-        // 1,2,3 배열로 두고 스위치로 인덱스 접근해서 그에 맞는 코드 실행시키기
 
         let randomAnswer = makeAnswer()
        // print(randomAnswer)
@@ -127,4 +125,3 @@ class BaseballGame {
     }
     
 }
-
