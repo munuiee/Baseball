@@ -21,7 +21,7 @@ Xcode Command Line Tool - Swift 5
 #### 트러블슈팅 & TIL
 깃 프로젝트로 진행하여 트러블슈팅은 프로젝트 안 이슈에서 확인할 수 있습니다. 👉 [BaseballGame Project](https://github.com/users/munuiee/projects/2)
 <br>
-TIL 👉 작성중
+TIL 👉 [TIL](https://github.com/munuiee/Baseball/blob/main/TIL.md) (작성중)
 
 <br>
 
