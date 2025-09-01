@@ -12,16 +12,13 @@ class RecordManager {
     var gameCount: Int = 0 // 게임 작동 횟수
     var records: [Int] = []
     
+    // 시도횟수 증가
     func add() -> Int {
         trialCount += 1
         return trialCount
     }
-    
-    func gameAdd() -> Int {
-        gameCount += 1
-        return gameCount
-    }
-    
+   
+    // i = 게임 횟수, count = 시도 횟수
     func showRecords() {
         for (i, count) in records.enumerated() {
             print("\(i + 1)번째 게임: 총 \(count)번의 도전 끝에 3스트라이크! 💫")

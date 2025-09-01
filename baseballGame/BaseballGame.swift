@@ -13,15 +13,9 @@ class BaseballGame {
     
     func start() {
         
-        // let intro: String = "야구게임 시작! ⚾️ 숫자를 3개 입력해주세요."
-        // print(intro)
-        
-        
         let randomAnswer = makeAnswer()
-        print(randomAnswer)
         
         while true {
-            
             let introMent: String = """
                 환영합니다!👋 원하시는 번호를 입력해주세요.
                 1️⃣ 게임 시작하기 2️⃣ 게임 기록 보기 3️⃣ 종료하기
@@ -32,24 +26,23 @@ class BaseballGame {
             switch userSelect {
             case "1":
                 print("야구게임 시작! ⚾️ 숫자를 3개 입력해주세요.")
- //              _ = recordManager.gameAdd()
             case "2":
                 print("내 기록 🕹️") 
                 recordManager.showRecords()
             case "3":
-                print("3번 실행") // 아직 작동 안 함
+                print("숫자 야구 게임을 종료합니다.") // Lv6 해결 안 됨
             default:
-                print("nothing")
+                print("올바른 숫자를 입력해주세요!")
             }
             
             while true {
-                
                 
                 let userAnswer = inputAnswer()
                 var strike = 0 // 스트라이크용 변수
                 var ball = 0 // 볼용 변수
                 
                 for i in 0..<userAnswer.count {
+                    
                     // 같은자리, 같은 숫자 카운트
                     if userAnswer[i] == randomAnswer[i] {
                         strike += 1
@@ -62,7 +55,6 @@ class BaseballGame {
                 
                 
                 // 결과 출력 조건문. 개수로 계산하여 0일 경우 Nothig, 0보다 클 경우 나머지
-                
                 if strike == 0 && ball == 0 {
                     print("실패! Nothing 🥲")
                 } else if strike > 0 && ball == 0 {
