@@ -18,6 +18,11 @@ Xcode Command Line Tool - Swift 5
 
 <br>
 
+#### 프로젝트 기간
+2025.08.26 - 2025.09.01
+
+<br>
+
 #### 트러블슈팅 & TIL
 트러블슈팅 모음 👉 [BaseballGame Project](https://github.com/munuiee/Baseball/issues?q=is%3Aissue%20state%3Aclosed)
 <br>
