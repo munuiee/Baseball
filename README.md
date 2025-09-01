@@ -24,9 +24,15 @@ Xcode Command Line Tool - Swift 5
 <br>
 
 ### 트러블슈팅 & TIL
-트러블슈팅 모음 👉 [BaseballGame Project](https://github.com/munuiee/Baseball/issues?q=is%3Aissue%20state%3Aclosed)
+
+#### 트러블슈팅 모음 
+[BaseballGame Project](https://github.com/munuiee/Baseball/issues?q=is%3Aissue%20state%3Aclosed)
+
 <br>
-TIL 👉 [TIL](https://velog.io/@jihyee10/야구게임-만들기-TIL) 
+
+
+#### TIL
+[TIL](https://velog.io/@jihyee10/야구게임-만들기-TIL) 
 
 <br>
 
