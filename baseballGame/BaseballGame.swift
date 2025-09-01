@@ -36,6 +36,8 @@ class BaseballGame {
             }
             
             while true {
+                // 입력한 수가 3스트라이크가 아닌 경우 출력
+                print("숫자를 입력해주세요!")
                 
                 let userAnswer = inputAnswer()
                 var strike = 0 // 스트라이크용 변수
@@ -46,6 +48,7 @@ class BaseballGame {
                     // 같은자리, 같은 숫자 카운트
                     if userAnswer[i] == randomAnswer[i] {
                         strike += 1
+
                         
                         // 다른자리의 숫자 카운트
                     } else if randomAnswer.contains(userAnswer[i]) {
@@ -60,16 +63,16 @@ class BaseballGame {
                 } else if strike > 0 && ball == 0 {
                     print("\(strike) 스트라이크!")
                 } else if strike == 0 && ball > 0 {
-                    print("\(ball)볼!")
+                    print("\(ball) 볼!")
                 } else {
-                    print("\(strike)스트라이크 \(ball)볼 🔥")
+                    print("\(strike) 스트라이크 \(ball) 볼 🔥")
                 }
                 
                 // 3 스트라이크 시 조건문 탈출
                 if strike == 3 {
                     print("""
-                    정답! 🎉 3 스트라이크!
-                    게임이 종료되었어요.
+                    정답입니다! 🎉
+                    
                     """)
                     recordManager.endGame()
                     break
@@ -97,7 +100,7 @@ class BaseballGame {
                 _ = recordManager.add()
                 return nums
             } else {
-                print("숫자를 다시 입력해주세요. 중복 제외, 세 개의 숫자만 가능합니다. 🥲")
+                print("올바르지 않은 입력값입니다. 중복 제외, 세 개의 숫자만 가능합니다. 🥲")
                 return inputAnswer()
             }
             
